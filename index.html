@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sochaux Badminton - Club de badminton loisirs à Sochaux, près de Montbéliard. Pratique en autonomie sur 7 terrains.">
+    <title>Sochaux Badminton - Club de Badminton Loisirs</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <span class="logo-icon">🏸</span>
+                <span class="logo-text">Sochaux <span class="highlight">Badminton</span></span>
+            </div>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#accueil" class="nav-link">Accueil</a></li>
+                <li><a href="#club" class="nav-link">Le Club</a></li>
+                <li><a href="#horaires" class="nav-link">Horaires</a></li>
+                <li><a href="#tarifs" class="nav-link">Tarifs</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+                <li><a href="#documents" class="nav-link btn-outline">Inscription</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="accueil">
+        <div class="hero-background"></div>
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    <span class="hero-title-line">Rejoignez le</span>
+                    <span class="hero-title-line highlight-large">Sochaux Badminton</span>
+                </h1>
+                <p class="hero-subtitle">Club de badminton loisirs à Sochaux, près de Montbéliard</p>
+                <div class="hero-cta">
+                    <a href="#contact" class="btn btn-primary">Nous contacter</a>
+                    <a href="#club" class="btn btn-secondary">En savoir plus</a>
+                </div>
+                <div class="hero-features">
+                    <div class="feature-item">
+                        <span class="feature-icon">🏸</span>
+                        <span class="feature-text">7 terrains</span>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">⚡</span>
+                        <span class="feature-text">Pratique libre</span>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">💰</span>
+                        <span class="feature-text">Dès 30€/an</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <span>Scroll</span>
+            <div class="scroll-line"></div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section section-about" id="club">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Qui sommes-nous ?</span>
+                <h2 class="section-title">Un club convivial pour tous</h2>
+            </div>
+            <div class="about-grid">
+                <div class="about-card">
+                    <div class="card-icon">🏆</div>
+                    <h3>Pratique en autonomie</h3>
+                    <p>Profitez de nos installations en toute liberté. Notre club privilégie la pratique loisir dans une ambiance décontractée et conviviale.</p>
+                </div>
+                <div class="about-card">
+                    <div class="card-icon">📍</div>
+                    <h3>Bien situé</h3>
+                    <p>Basé à Sochaux en Franche-Comté, à proximité de Montbéliard, notre club est facilement accessible.</p>
+                </div>
+                <div class="about-card">
+                    <div class="card-icon">👥</div>
+                    <h3>Pour tous les âges</h3>
+                    <p>Que vous soyez adulte ou enfant, débutant ou confirmé, vous êtes les bienvenus pour partager votre passion du badminton.</p>
+                </div>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number" data-target="7">0</div>
+                    <div class="stat-label">Terrains disponibles</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-target="2">0</div>
+                    <div class="stat-label">Sessions par semaine</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-target="30">0</div>
+                    <div class="stat-label">€ Cotisation minimale</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Schedule Section -->
+    <section class="section section-schedule" id="horaires">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Quand jouer ?</span>
+                <h2 class="section-title">Horaires d'ouverture</h2>
+            </div>
+            <div class="schedule-grid">
+                <div class="schedule-card">
+                    <div class="schedule-day">Lundi</div>
+                    <div class="schedule-time">17h30 - 20h00</div>
+                    <div class="schedule-badge">Ouvert</div>
+                </div>
+                <div class="schedule-card">
+                    <div class="schedule-day">Jeudi</div>
+                    <div class="schedule-time">18h00 - 20h00</div>
+                    <div class="schedule-info">Jusqu'à 22h00 si présence d'un responsable</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="section section-pricing" id="tarifs">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Nos tarifs</span>
+                <h2 class="section-title">Cotisations annuelles</h2>
+            </div>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="pricing-icon">👶</div>
+                    <h3 class="pricing-title">Enfants</h3>
+                    <div class="pricing-amount">
+                        <span class="price">30€</span>
+                        <span class="period">/an</span>
+                    </div>
+                    <ul class="pricing-features">
+                        <li>✓ Accès à tous les créneaux</li>
+                        <li>✓ Pratique en autonomie</li>
+                        <li>✓ 7 terrains disponibles</li>
+                        <li>✓ Ambiance conviviale</li>
+                    </ul>
+                    <a href="#documents" class="btn btn-primary">S'inscrire</a>
+                </div>
+                <div class="pricing-card featured">
+                    <div class="pricing-badge">Populaire</div>
+                    <div class="pricing-icon">👨</div>
+                    <h3 class="pricing-title">Adultes</h3>
+                    <div class="pricing-amount">
+                        <span class="price">35€</span>
+                        <span class="period">/an</span>
+                    </div>
+                    <ul class="pricing-features">
+                        <li>✓ Accès à tous les créneaux</li>
+                        <li>✓ Pratique en autonomie</li>
+                        <li>✓ 7 terrains disponibles</li>
+                        <li>✓ Ambiance conviviale</li>
+                    </ul>
+                    <a href="#documents" class="btn btn-primary">S'inscrire</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Documents Section -->
+    <section class="section section-documents" id="documents">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Téléchargements</span>
+                <h2 class="section-title">Documents d'inscription</h2>
+            </div>
+            <div class="documents-grid">
+                <div class="document-card">
+                    <div class="document-icon">📄</div>
+                    <h3>Fiche d'inscription</h3>
+                    <p>Téléchargez et remplissez votre fiche d'inscription pour rejoindre le club.</p>
+                    <a href="/documents/fiche-inscription.pdf" class="btn btn-outline" download>
+                        <span>Télécharger</span>
+                        <span class="icon">⬇</span>
+                    </a>
+                </div>
+                <div class="document-card">
+                    <div class="document-icon">📋</div>
+                    <h3>Décharge pour mineur</h3>
+                    <p>Autorisation parentale pour les mineurs non accompagnés lors des séances.</p>
+                    <a href="/documents/decharge-mineur.pdf" class="btn btn-outline" download>
+                        <span>Télécharger</span>
+                        <span class="icon">⬇</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section section-contact" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Contactez-nous</span>
+                <h2 class="section-title">Une question ? N'hésitez pas !</h2>
+            </div>
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div>
+                            <h4>Adresse</h4>
+                            <p>Sochaux, 25600<br>Doubs, Franche-Comté</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">✉️</div>
+                        <div>
+                            <h4>Email</h4>
+                            <p><a href="mailto:contact@sochauxbadminton.com">contact@sochauxbadminton.com</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">⏰</div>
+                        <div>
+                            <h4>Horaires</h4>
+                            <p>Lundi: 17h30-20h00<br>Jeudi: 18h00-20h00 (22h00)</p>
+                        </div>
+                    </div>
+                </div>
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Nom complet</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Sujet</label>
+                        <input type="text" id="subject" name="subject" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">
+                        <span>Envoyer</span>
+                        <span class="icon">→</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <span class="logo-icon">🏸</span>
+                        <span class="logo-text">Sochaux <span class="highlight">Badminton</span></span>
+                    </div>
+                    <p>Club de badminton loisirs à Sochaux</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="#accueil">Accueil</a></li>
+                        <li><a href="#club">Le Club</a></li>
+                        <li><a href="#horaires">Horaires</a></li>
+                        <li><a href="#tarifs">Tarifs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="mailto:contact@sochauxbadminton.com">contact@sochauxbadminton.com</a></li>
+                        <li>Sochaux, 25600</li>
+                        <li>Doubs, Franche-Comté</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Sochaux Badminton. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -945,6 +945,115 @@ body {
     text-decoration: underline;
 }
 
+/* ===================================
+   Legal Page Styles
+   =================================== */
+.legal-page {
+    background: var(--dark-surface);
+    min-height: 100vh;
+    padding-top: 100px;
+}
+
+.legal-content {
+    max-width: 900px;
+    margin: 0 auto;
+    background: var(--dark-elevated);
+    padding: 3rem;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 215, 0, 0.1);
+}
+
+.legal-content h1 {
+    font-size: clamp(2rem, 5vw, 2.5rem);
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.last-update {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-bottom: 2rem;
+    font-style: italic;
+}
+
+.legal-section {
+    margin-bottom: 2.5rem;
+}
+
+.legal-section h2 {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    margin-top: 2rem;
+}
+
+.legal-section h3 {
+    color: var(--secondary-color);
+    font-size: 1.2rem;
+    margin-bottom: 0.75rem;
+    margin-top: 1.5rem;
+}
+
+.legal-section p {
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: 1rem;
+}
+
+.legal-section ul {
+    list-style: disc;
+    margin-left: 2rem;
+    margin-bottom: 1rem;
+}
+
+.legal-section li {
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: 0.5rem;
+}
+
+.legal-section a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.legal-section a:hover {
+    color: var(--primary-color);
+    text-decoration: underline;
+}
+
+.legal-section strong {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.contact-box {
+    background: rgba(255, 215, 0, 0.05);
+    border-left: 4px solid var(--primary-color);
+    padding: 1.5rem;
+    border-radius: 10px;
+    margin: 1.5rem 0;
+}
+
+.contact-box p {
+    margin-bottom: 0.5rem;
+}
+
+.legal-footer {
+    font-size: 0.85rem;
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--text-secondary);
+    font-style: italic;
+}
+
+.back-button {
+    text-align: center;
+    margin-top: 3rem;
+}
+
 /* Footer */
 .footer {
     background: var(--dark-bg);
@@ -1010,6 +1119,16 @@ body {
 
 .footer-bottom p {
     margin-bottom: 0.5rem;
+}
+
+.footer-bottom a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.footer-bottom a:hover {
+    text-decoration: underline;
 }
 
 .footer-credits {
@@ -1095,6 +1214,14 @@ body {
 
     .notice-icon {
         font-size: 2.5rem;
+    }
+
+    .legal-content {
+        padding: 2rem 1.5rem;
+    }
+
+    .legal-section ul {
+        margin-left: 1.5rem;
     }
 }
 

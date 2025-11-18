@@ -1,0 +1,16 @@
+# Configuration avec clé API (ne pas commit)
+config.js
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~

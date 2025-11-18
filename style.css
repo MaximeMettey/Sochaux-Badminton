@@ -1071,7 +1071,7 @@ body {
     }
 }
 
-/* Success message for form */
+/* Success and Error messages for form */
 .form-success {
     background: rgba(0, 255, 0, 0.1);
     border: 2px solid #00ff00;
@@ -1081,4 +1081,26 @@ body {
     margin-bottom: 1rem;
     text-align: center;
     animation: fadeInUp 0.5s ease-out;
+}
+
+.form-error {
+    background: rgba(255, 69, 0, 0.1);
+    border: 2px solid #ff4500;
+    color: #ff6347;
+    padding: 1rem;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    text-align: center;
+    animation: fadeInUp 0.5s ease-out;
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
 }

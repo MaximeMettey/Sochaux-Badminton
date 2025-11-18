@@ -54,11 +54,43 @@ Sochaux-Badminton/
 ├── index.html          # Page principale
 ├── style.css           # Styles et animations
 ├── script.js           # Interactions JavaScript
+├── config.js           # Configuration (clé API - ne pas commit)
+├── config.example.js   # Exemple de configuration
 ├── documents/          # Documents téléchargeables
 │   ├── fiche-inscription.pdf
 │   └── decharge-mineur.pdf
 └── README.md          # Ce fichier
 ```
+
+## ✉️ Configuration du formulaire de contact
+
+Le site utilise **Web3Forms** pour l'envoi d'emails (gratuit, illimité, avec protection antispam).
+
+### Étape 1 : Obtenir une clé API (gratuit)
+
+1. Allez sur [web3forms.com](https://web3forms.com)
+2. Entrez votre email : `contact@sochauxbadminton.com`
+3. Vérifiez votre boîte mail et cliquez sur le lien de confirmation
+4. Copiez la clé API fournie
+
+### Étape 2 : Configurer le site
+
+1. Copiez `config.example.js` en `config.js` :
+   ```bash
+   cp config.example.js config.js
+   ```
+
+2. Ouvrez `config.js` et remplacez `VOTRE_CLE_API_ICI` par votre vraie clé
+
+3. C'est tout ! Le formulaire est maintenant fonctionnel 🎉
+
+### Protection antispam incluse
+
+- **Honeypot** : Piège invisible pour les robots
+- **Web3Forms** : Protection contre le spam intégrée
+- **Rate limiting** : Limitation automatique par Web3Forms
+
+> **Note** : Le fichier `config.js` est dans `.gitignore` pour ne pas exposer votre clé API. Ne le commitez jamais !
 
 ## 📄 Documents à ajouter
 

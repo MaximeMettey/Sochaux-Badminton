@@ -124,40 +124,67 @@ const statsObserver = new IntersectionObserver((entries) => {
 statNumbers.forEach(stat => statsObserver.observe(stat));
 
 // ===================================
-// Contact Form Handler
+// Contact Form Handler avec Web3Forms
 // ===================================
 const contactForm = document.getElementById('contactForm');
+const submitBtn = document.getElementById('submitBtn');
 
-contactForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-
-    // Get form data
-    const formData = new FormData(contactForm);
-    const data = {
-        name: formData.get('name'),
-        email: formData.get('email'),
-        subject: formData.get('subject'),
-        message: formData.get('message')
-    };
-
-    // Create mailto link
-    const mailtoLink = `mailto:contact@sochauxbadminton.com?subject=${encodeURIComponent(data.subject)}&body=${encodeURIComponent(
-        `Nom: ${data.name}\nEmail: ${data.email}\n\nMessage:\n${data.message}`
-    )}`;
-
-    // Open mail client
-    window.location.href = mailtoLink;
-
-    // Show success message
-    showSuccessMessage();
-
-    // Reset form
-    contactForm.reset();
+// Charger la clé API depuis config.js
+document.addEventListener('DOMContentLoaded', () => {
+    if (typeof CONFIG !== 'undefined' && CONFIG.web3formsKey && CONFIG.web3formsKey !== 'VOTRE_CLE_API_ICI') {
+        document.getElementById('accessKey').value = CONFIG.web3formsKey;
+    }
 });
 
-function showSuccessMessage() {
-    // Remove existing success message if any
-    const existingMessage = document.querySelector('.form-success');
+contactForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    // Vérifier si la clé API est configurée
+    const accessKey = document.getElementById('accessKey').value;
+    if (!accessKey || accessKey === '') {
+        showErrorMessage('Configuration manquante. Veuillez configurer la clé API dans config.js');
+        return;
+    }
+
+    // Désactiver le bouton pendant l'envoi
+    const originalHTML = submitBtn.innerHTML;
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = '<span>Envoi en cours...</span>';
+
+    try {
+        const formData = new FormData(contactForm);
+
+        // Ajouter le sujet personnalisé au message
+        const userSubject = formData.get('user_subject');
+        const originalMessage = formData.get('message');
+        formData.set('message', `Sujet: ${userSubject}\n\n${originalMessage}`);
+
+        const response = await fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            body: formData
+        });
+
+        const data = await response.json();
+
+        if (data.success) {
+            showSuccessMessage('Message envoyé avec succès ! Nous vous répondrons dans les plus brefs délais.');
+            contactForm.reset();
+        } else {
+            throw new Error(data.message || 'Erreur lors de l\'envoi');
+        }
+    } catch (error) {
+        console.error('Erreur:', error);
+        showErrorMessage('Une erreur est survenue. Veuillez réessayer ou nous contacter directement par email.');
+    } finally {
+        // Réactiver le bouton
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = originalHTML;
+    }
+});
+
+function showSuccessMessage(message) {
+    // Remove existing messages if any
+    const existingMessage = document.querySelector('.form-success, .form-error');
     if (existingMessage) {
         existingMessage.remove();
     }
@@ -165,7 +192,7 @@ function showSuccessMessage() {
     // Create success message
     const successMessage = document.createElement('div');
     successMessage.className = 'form-success';
-    successMessage.textContent = 'Votre client mail va s\'ouvrir avec votre message pré-rempli !';
+    successMessage.textContent = message || 'Message envoyé avec succès !';
 
     // Insert before form
     contactForm.parentNode.insertBefore(successMessage, contactForm);
@@ -175,6 +202,28 @@ function showSuccessMessage() {
         successMessage.style.animation = 'fadeOut 0.5s ease-out forwards';
         setTimeout(() => successMessage.remove(), 500);
     }, 5000);
+}
+
+function showErrorMessage(message) {
+    // Remove existing messages if any
+    const existingMessage = document.querySelector('.form-success, .form-error');
+    if (existingMessage) {
+        existingMessage.remove();
+    }
+
+    // Create error message
+    const errorMessage = document.createElement('div');
+    errorMessage.className = 'form-error';
+    errorMessage.textContent = message || 'Une erreur est survenue.';
+
+    // Insert before form
+    contactForm.parentNode.insertBefore(errorMessage, contactForm);
+
+    // Remove after 7 seconds
+    setTimeout(() => {
+        errorMessage.style.animation = 'fadeOut 0.5s ease-out forwards';
+        setTimeout(() => errorMessage.remove(), 500);
+    }, 7000);
 }
 
 // ===================================

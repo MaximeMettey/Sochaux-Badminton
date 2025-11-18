@@ -907,6 +907,44 @@ body {
     justify-content: center;
 }
 
+/* RGPD Checkbox */
+.form-checkbox {
+    margin: 1.5rem 0;
+}
+
+.checkbox-label {
+    display: flex;
+    gap: 0.75rem;
+    align-items: flex-start;
+    cursor: pointer;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+}
+
+.checkbox-label input[type="checkbox"] {
+    margin-top: 0.25rem;
+    cursor: pointer;
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    accent-color: var(--primary-color);
+}
+
+.checkbox-label span {
+    flex: 1;
+}
+
+.rgpd-link {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.rgpd-link:hover {
+    text-decoration: underline;
+}
+
 /* Footer */
 .footer {
     background: var(--dark-bg);
@@ -970,6 +1008,26 @@ body {
     font-size: 0.9rem;
 }
 
+.footer-bottom p {
+    margin-bottom: 0.5rem;
+}
+
+.footer-credits {
+    font-size: 0.85rem;
+    opacity: 0.8;
+}
+
+.footer-credits a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.footer-credits a:hover {
+    color: var(--text-primary);
+    text-decoration: underline;
+}
+
 /* ===================================
    Responsive Design
    =================================== */
@@ -1003,6 +1061,7 @@ body {
     .hero-features {
         flex-direction: column;
         gap: 1.5rem;
+        align-items: center;
     }
 
     .section {

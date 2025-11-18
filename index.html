@@ -252,6 +252,14 @@
                         <div class="h-captcha" id="hcaptcha" data-sitekey=""></div>
                     </div>
 
+                    <!-- RGPD Consent -->
+                    <div class="form-group form-checkbox">
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="rgpd_consent" required>
+                            <span>J'accepte que mes données soient utilisées pour me recontacter dans le cadre de ma demande. Les données sont transmises via FormSubmit et ne sont pas stockées par le site. <a href="#" class="rgpd-link">En savoir plus</a></span>
+                        </label>
+                    </div>
+
                     <button type="submit" class="btn btn-primary" id="submitBtn">
                         <span>Envoyer</span>
                         <span class="icon">→</span>
@@ -293,7 +301,8 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 Sochaux Badminton. Tous droits réservés.</p>
+                <p>&copy; <span id="currentYear"></span> Sochaux Badminton. Tous droits réservés.</p>
+                <p class="footer-credits">Réalisation par <a href="https://www.co2m.net" target="_blank" rel="noopener noreferrer">CO2M - WebDesign et Communication</a></p>
             </div>
         </div>
     </footer>

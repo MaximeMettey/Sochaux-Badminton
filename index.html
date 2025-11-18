@@ -9,6 +9,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <!-- hCaptcha -->
+    <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
 </head>
 <body>
     <!-- Navigation -->
@@ -228,19 +230,19 @@
                         </div>
                     </div>
                 </div>
-                <form class="contact-form" id="contactForm" action="https://api.web3forms.com/submit" method="POST">
-                    <!-- Clé API Web3Forms - À CONFIGURER dans config.js -->
-                    <input type="hidden" name="access_key" id="accessKey" value="">
+                <form class="contact-form" id="contactForm" action="https://formsubmit.co/contact@sochauxbadminton.com" method="POST">
+                    <!-- Configuration FormSubmit -->
+                    <input type="hidden" name="_subject" value="Nouveau message depuis le site Sochaux Badminton">
+                    <input type="hidden" name="_template" value="table">
 
-                    <!-- Configuration de l'email -->
-                    <input type="hidden" name="subject" id="formSubject" value="Nouveau message depuis le site Sochaux Badminton">
-                    <input type="hidden" name="from_name" value="Site Sochaux Badminton">
+                    <!-- Redirection après soumission (configuré via JS) -->
+                    <input type="hidden" name="_next" id="redirectUrl" value="">
 
-                    <!-- Protection antispam (honeypot) -->
-                    <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+                    <!-- Protection antispam - Honeypot -->
+                    <input type="text" name="_honey" style="display:none">
 
-                    <!-- Redirection après soumission -->
-                    <input type="hidden" name="redirect" value="">
+                    <!-- Désactiver le captcha par défaut de FormSubmit (on utilise hCaptcha) -->
+                    <input type="hidden" name="_captcha" value="false">
 
                     <div class="form-group">
                         <label for="name">Nom complet</label>
@@ -252,12 +254,18 @@
                     </div>
                     <div class="form-group">
                         <label for="subject">Sujet</label>
-                        <input type="text" id="subject" name="user_subject" required>
+                        <input type="text" id="subject" name="Sujet" required>
                     </div>
                     <div class="form-group">
                         <label for="message">Message</label>
                         <textarea id="message" name="message" rows="5" required></textarea>
                     </div>
+
+                    <!-- hCaptcha Widget (configuré via JS) -->
+                    <div class="form-group">
+                        <div class="h-captcha" id="hcaptcha" data-sitekey=""></div>
+                    </div>
+
                     <button type="submit" class="btn btn-primary" id="submitBtn">
                         <span>Envoyer</span>
                         <span class="icon">→</span>

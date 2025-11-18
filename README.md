@@ -64,33 +64,40 @@ Sochaux-Badminton/
 
 ## ✉️ Configuration du formulaire de contact
 
-Le site utilise **Web3Forms** pour l'envoi d'emails (gratuit, illimité, avec protection antispam).
+Le site utilise **FormSubmit.co** avec **hCaptcha** pour l'envoi d'emails (gratuit, illimité, avec protection antispam).
 
-### Étape 1 : Obtenir une clé API (gratuit)
+### Étape 1 : Premier envoi de test (activation FormSubmit)
 
-1. Allez sur [web3forms.com](https://web3forms.com)
-2. Entrez votre email : `contact@sochauxbadminton.com`
-3. Vérifiez votre boîte mail et cliquez sur le lien de confirmation
-4. Copiez la clé API fournie
+1. Ouvrez `index.html` dans votre navigateur
+2. Remplissez et envoyez le formulaire UNE FOIS
+3. **Important** : Vous recevrez un email de confirmation de FormSubmit
+4. Cliquez sur le lien dans l'email pour activer le formulaire
 
-### Étape 2 : Configurer le site
+### Étape 2 : Configurer hCaptcha (protection antispam)
+
+1. Allez sur [dashboard.hcaptcha.com](https://dashboard.hcaptcha.com/)
+2. Connectez-vous avec votre compte hCaptcha
+3. Allez dans "Sites" et créez un nouveau site (ou utilisez un existant)
+4. Copiez la **Site Key** (clé publique)
+
+### Étape 3 : Configurer le site
 
 1. Copiez `config.example.js` en `config.js` :
    ```bash
    cp config.example.js config.js
    ```
 
-2. Ouvrez `config.js` et remplacez `VOTRE_CLE_API_ICI` par votre vraie clé
+2. Ouvrez `config.js` et collez votre Site Key hCaptcha
 
-3. C'est tout ! Le formulaire est maintenant fonctionnel 🎉
+3. C'est tout ! Le formulaire est maintenant protégé 🎉
 
 ### Protection antispam incluse
 
-- **Honeypot** : Piège invisible pour les robots
-- **Web3Forms** : Protection contre le spam intégrée
-- **Rate limiting** : Limitation automatique par Web3Forms
+- **hCaptcha** : Captcha moderne et respectueux de la vie privée
+- **Honeypot** : Piège invisible pour attraper les robots
+- **FormSubmit** : Validation côté serveur automatique
 
-> **Note** : Le fichier `config.js` est dans `.gitignore` pour ne pas exposer votre clé API. Ne le commitez jamais !
+> **Note** : La Site Key hCaptcha est publique (normale dans le HTML). Le fichier `config.js` peut être commité si vous le souhaitez.
 
 ## 📄 Documents à ajouter
 

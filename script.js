@@ -124,107 +124,33 @@ const statsObserver = new IntersectionObserver((entries) => {
 statNumbers.forEach(stat => statsObserver.observe(stat));
 
 // ===================================
-// Contact Form Handler avec Web3Forms
+// Contact Form Handler avec FormSubmit + hCaptcha
 // ===================================
-const contactForm = document.getElementById('contactForm');
-const submitBtn = document.getElementById('submitBtn');
 
-// Charger la clé API depuis config.js
+// Charger la configuration hCaptcha depuis config.js
 document.addEventListener('DOMContentLoaded', () => {
-    if (typeof CONFIG !== 'undefined' && CONFIG.web3formsKey && CONFIG.web3formsKey !== 'VOTRE_CLE_API_ICI') {
-        document.getElementById('accessKey').value = CONFIG.web3formsKey;
-    }
-});
-
-contactForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
-
-    // Vérifier si la clé API est configurée
-    const accessKey = document.getElementById('accessKey').value;
-    if (!accessKey || accessKey === '') {
-        showErrorMessage('Configuration manquante. Veuillez configurer la clé API dans config.js');
-        return;
-    }
-
-    // Désactiver le bouton pendant l'envoi
-    const originalHTML = submitBtn.innerHTML;
-    submitBtn.disabled = true;
-    submitBtn.innerHTML = '<span>Envoi en cours...</span>';
-
-    try {
-        const formData = new FormData(contactForm);
-
-        // Ajouter le sujet personnalisé au message
-        const userSubject = formData.get('user_subject');
-        const originalMessage = formData.get('message');
-        formData.set('message', `Sujet: ${userSubject}\n\n${originalMessage}`);
-
-        const response = await fetch('https://api.web3forms.com/submit', {
-            method: 'POST',
-            body: formData
-        });
-
-        const data = await response.json();
-
-        if (data.success) {
-            showSuccessMessage('Message envoyé avec succès ! Nous vous répondrons dans les plus brefs délais.');
-            contactForm.reset();
-        } else {
-            throw new Error(data.message || 'Erreur lors de l\'envoi');
+    if (typeof CONFIG !== 'undefined') {
+        // Configurer la clé hCaptcha
+        if (CONFIG.hcaptchaSiteKey && CONFIG.hcaptchaSiteKey !== 'VOTRE_SITE_KEY_HCAPTCHA_ICI') {
+            const hcaptchaDiv = document.querySelector('.h-captcha');
+            if (hcaptchaDiv) {
+                hcaptchaDiv.setAttribute('data-sitekey', CONFIG.hcaptchaSiteKey);
+            }
         }
-    } catch (error) {
-        console.error('Erreur:', error);
-        showErrorMessage('Une erreur est survenue. Veuillez réessayer ou nous contacter directement par email.');
-    } finally {
-        // Réactiver le bouton
-        submitBtn.disabled = false;
-        submitBtn.innerHTML = originalHTML;
+
+        // Configurer l'URL de redirection (optionnel)
+        if (CONFIG.redirectUrl) {
+            const redirectInput = document.getElementById('redirectUrl');
+            if (redirectInput) {
+                redirectInput.value = CONFIG.redirectUrl;
+            }
+        }
     }
 });
 
-function showSuccessMessage(message) {
-    // Remove existing messages if any
-    const existingMessage = document.querySelector('.form-success, .form-error');
-    if (existingMessage) {
-        existingMessage.remove();
-    }
-
-    // Create success message
-    const successMessage = document.createElement('div');
-    successMessage.className = 'form-success';
-    successMessage.textContent = message || 'Message envoyé avec succès !';
-
-    // Insert before form
-    contactForm.parentNode.insertBefore(successMessage, contactForm);
-
-    // Remove after 5 seconds
-    setTimeout(() => {
-        successMessage.style.animation = 'fadeOut 0.5s ease-out forwards';
-        setTimeout(() => successMessage.remove(), 500);
-    }, 5000);
-}
-
-function showErrorMessage(message) {
-    // Remove existing messages if any
-    const existingMessage = document.querySelector('.form-success, .form-error');
-    if (existingMessage) {
-        existingMessage.remove();
-    }
-
-    // Create error message
-    const errorMessage = document.createElement('div');
-    errorMessage.className = 'form-error';
-    errorMessage.textContent = message || 'Une erreur est survenue.';
-
-    // Insert before form
-    contactForm.parentNode.insertBefore(errorMessage, contactForm);
-
-    // Remove after 7 seconds
-    setTimeout(() => {
-        errorMessage.style.animation = 'fadeOut 0.5s ease-out forwards';
-        setTimeout(() => errorMessage.remove(), 500);
-    }, 7000);
-}
+// Note: FormSubmit gère automatiquement la soumission du formulaire
+// Le formulaire HTML utilise method="POST" et action="https://formsubmit.co/..."
+// Pas besoin de JavaScript pour l'envoi !
 
 // ===================================
 // Parallax Effect on Hero

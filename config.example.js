@@ -4,19 +4,21 @@
 // IMPORTANT: Copiez ce fichier en config.js et remplissez vos vraies valeurs
 
 const CONFIG = {
-    // Clé API Web3Forms
-    // Obtenez votre clé gratuite sur https://web3forms.com
-    // 1. Allez sur https://web3forms.com
-    // 2. Entrez contact@sochauxbadminton.com
-    // 3. Vérifiez votre email et copiez la clé
-    // 4. Collez-la ci-dessous dans config.js (pas dans ce fichier)
-    web3formsKey: 'VOTRE_CLE_API_ICI',
+    // Clé hCaptcha (Site Key)
+    // 1. Allez sur https://dashboard.hcaptcha.com/sites
+    // 2. Créez un nouveau site (ou utilisez un existant)
+    // 3. Copiez la "Site Key" (clé publique)
+    // 4. Collez-la ci-dessous dans config.js
+    // Note: La Site Key peut être publique, c'est normal !
+    hcaptchaSiteKey: 'VOTRE_SITE_KEY_HCAPTCHA_ICI',
 
-    // Email de destination (doit correspondre à celui utilisé pour créer la clé)
+    // Email de destination
     contactEmail: 'contact@sochauxbadminton.com',
 
-    // URL du site (pour la redirection après envoi)
-    siteUrl: window.location.origin
+    // URL de redirection après soumission (optionnel)
+    // Exemple: 'https://sochauxbadminton.com/merci.html'
+    // Si vide, FormSubmit affichera sa page de confirmation par défaut
+    redirectUrl: ''
 };
 
 // Ne pas modifier le code ci-dessous

@@ -478,6 +478,68 @@ body {
     margin-top: 0.5rem;
 }
 
+/* Important Notice */
+.important-notice {
+    display: flex;
+    gap: 1.5rem;
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.1) 0%, rgba(30, 144, 255, 0.1) 100%);
+    border: 2px solid var(--primary-color);
+    border-radius: 20px;
+    padding: 2.5rem;
+    margin-top: 4rem;
+    align-items: flex-start;
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.2);
+    opacity: 0;
+    transform: scale(0.95);
+    transition: var(--transition);
+}
+
+.important-notice.animate {
+    animation: noticeAppear 0.8s ease-out forwards, pulse-border 3s ease-in-out infinite 0.8s;
+}
+
+@keyframes noticeAppear {
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes pulse-border {
+    0%, 100% {
+        border-color: var(--primary-color);
+        box-shadow: 0 0 30px rgba(255, 215, 0, 0.2);
+    }
+    50% {
+        border-color: var(--secondary-color);
+        box-shadow: 0 0 30px rgba(30, 144, 255, 0.3);
+    }
+}
+
+.notice-icon {
+    font-size: 3rem;
+    flex-shrink: 0;
+    filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.5));
+}
+
+.notice-content h3 {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.notice-content p {
+    color: var(--text-primary);
+    line-height: 1.8;
+    font-size: 1.05rem;
+}
+
+.notice-content strong {
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
 /* Schedule Section */
 .schedule-grid {
     display: grid;
@@ -950,6 +1012,16 @@ body {
 
     .contact-form {
         padding: 2rem;
+    }
+
+    .important-notice {
+        flex-direction: column;
+        padding: 2rem;
+        text-align: center;
+    }
+
+    .notice-icon {
+        font-size: 2.5rem;
     }
 }
 

@@ -82,7 +82,7 @@ const observer = new IntersectionObserver((entries) => {
 
 // Observe all animatable elements
 const animatableElements = document.querySelectorAll(
-    '.about-card, .stat-item, .schedule-card, .pricing-card, .document-card, .contact-item, .contact-form'
+    '.about-card, .stat-item, .schedule-card, .pricing-card, .document-card, .contact-item, .contact-form, .important-notice'
 );
 
 animatableElements.forEach(el => observer.observe(el));

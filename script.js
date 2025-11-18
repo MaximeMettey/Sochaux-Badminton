@@ -82,46 +82,10 @@ const observer = new IntersectionObserver((entries) => {
 
 // Observe all animatable elements
 const animatableElements = document.querySelectorAll(
-    '.about-card, .stat-item, .schedule-card, .pricing-card, .document-card, .contact-item, .contact-form, .important-notice'
+    '.about-card, .schedule-card, .pricing-card, .document-card, .contact-item, .contact-form, .important-notice'
 );
 
 animatableElements.forEach(el => observer.observe(el));
-
-// ===================================
-// Animated Counter for Stats
-// ===================================
-const statNumbers = document.querySelectorAll('.stat-number');
-
-const animateCounter = (element) => {
-    const target = parseInt(element.getAttribute('data-target'));
-    const duration = 2000; // 2 seconds
-    const increment = target / (duration / 16); // 60fps
-    let current = 0;
-
-    const updateCounter = () => {
-        current += increment;
-
-        if (current < target) {
-            element.textContent = Math.floor(current);
-            requestAnimationFrame(updateCounter);
-        } else {
-            element.textContent = target;
-        }
-    };
-
-    updateCounter();
-};
-
-const statsObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting && !entry.target.classList.contains('counted')) {
-            entry.target.classList.add('counted');
-            animateCounter(entry.target);
-        }
-    });
-}, { threshold: 0.5 });
-
-statNumbers.forEach(stat => statsObserver.observe(stat));
 
 // ===================================
 // Contact Form Handler avec FormSubmit + hCaptcha

@@ -322,3 +322,53 @@ document.addEventListener('mousedown', () => {
 console.log('%c🏸 Sochaux Badminton', 'color: #FFD700; font-size: 24px; font-weight: bold;');
 console.log('%cRejoignez-nous pour jouer au badminton !', 'color: #1E90FF; font-size: 14px;');
 console.log('%ccontact@sochauxbadminton.com', 'color: #a0a8c0; font-size: 12px;');
+
+// ===================================
+// Message de confirmation après envoi - VERSION CORRIGÉE
+// ===================================
+document.addEventListener('DOMContentLoaded', () => {
+    console.log('Script chargé, vérification du paramètre sent...');
+    
+    // Vérifier si le paramètre ?sent=1 est présent dans l'URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const sentParam = urlParams.get('sent');
+    
+    console.log('Paramètre sent:', sentParam);
+    
+    if (sentParam === '1') {
+        console.log('Paramètre sent=1 détecté, affichage du message...');
+        
+        // Afficher le message de confirmation
+        const successMessage = document.getElementById('successMessage');
+        console.log('Element successMessage:', successMessage);
+        
+        if (successMessage) {
+            successMessage.style.display = 'flex';
+            console.log('Message affiché');
+            
+            // Scroll vers le haut
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            
+            // Nettoyer l'URL après 2 secondes (enlever le paramètre ?sent=1)
+            setTimeout(() => {
+                const newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname;
+                window.history.replaceState({}, document.title, newUrl);
+                console.log('URL nettoyée');
+            }, 2000);
+        } else {
+            console.error('Element successMessage non trouvé dans le DOM');
+        }
+    }
+});
+
+// Fonction pour fermer le message de confirmation
+function closeSuccessMessage() {
+    console.log('Fermeture du message...');
+    const successMessage = document.getElementById('successMessage');
+    if (successMessage) {
+        successMessage.style.animation = 'fadeOut 0.3s ease-out';
+        setTimeout(() => {
+            successMessage.style.display = 'none';
+        }, 300);
+    }
+}

@@ -9,8 +9,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-    <!-- hCaptcha -->
-    <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
 </head>
 <body>
     <!-- Navigation -->
@@ -35,6 +33,18 @@
             </ul>
         </div>
     </nav>
+
+    <!-- Message de confirmation (masqué par défaut) -->
+    <div class="success-message" id="successMessage" style="display: none;">
+        <div class="container">
+            <div class="success-content">
+                <div class="success-icon">✅</div>
+                <h3>Message envoyé avec succès !</h3>
+                <p>Merci pour votre message. Nous vous répondrons dans les plus brefs délais.</p>
+                <button class="btn btn-outline" onclick="closeSuccessMessage()">Fermer</button>
+            </div>
+        </div>
+    </div>
 
     <!-- Hero Section -->
     <section class="hero" id="accueil">
@@ -222,7 +232,7 @@
                     <input type="hidden" name="_template" value="table">
 
                     <!-- Redirection après soumission (configuré via JS) -->
-                    <input type="hidden" name="_next" id="redirectUrl" value="">
+                    <input type="hidden" name="_next" id="redirectUrl" value="https://www.sochauxbadminton.com/?sent=1">
 
                     <!-- Protection antispam - Honeypot -->
                     <input type="text" name="_honey" style="display:none">
@@ -308,6 +318,8 @@
     </footer>
 
     <script src="config.js"></script>
-    <script src="script.js"></script>
+    <script src="script.js"></script>.
+    <!-- hCaptcha -->
+    <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
 </body>
 </html>
